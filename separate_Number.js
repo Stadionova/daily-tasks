@@ -2,6 +2,10 @@
 // Output: 7 -> 0 -> 8
 // Explanation: 342 + 465 = 807.
 
+// не решённое:
+
+// первый вариант:
+
 var firstNumArr = [2, 4, 3];
 var secondNumArr = [5, 6, 4];
 var full = [];
@@ -18,18 +22,7 @@ separatedStr.forEach(function (item, index, separatedStr) {
 full.reverse();
 console.log(full);
 
-
-
-
-
-
-
-
-
-
-
-
-
+// второй вариант:
 
 var l1 =
 {
@@ -42,7 +35,6 @@ var l1 =
         }
     }
 };
-
 
 var l2 =
 {
@@ -73,20 +65,7 @@ var addTwoNumbers = function (firstNumLinkedList, secondNumLinkedList) {
 
 addTwoNumbers(l1, l2);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// третий вариант:
 
 var l1 =
 {
@@ -99,7 +78,6 @@ var l1 =
         }
     }
 };
-
 
 var l2 =
 {
