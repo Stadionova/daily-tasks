@@ -16,31 +16,7 @@
 // print(str(Solution().longestPalindrome(s)))
 // # racecar
 
-// вариант для banana работает:
-
 var str = "banana";
-var strToArr = str.split('');
-var copyArr = strToArr.slice();
-var palindrome = [];
-
-function func(copyArr) {
-    var j = copyArr.length - 1;
-    for (var i = 0; i < copyArr.length;) {
-        if (copyArr[i] == copyArr[j]) {
-            palindrome.push(copyArr[i]);
-            j--;
-            i++;
-        } else {
-            i++;
-        }
-    }
-    return palindrome;
-}
-func(copyArr);
-
-// вариант для million работает:
-
-var str = "million";
 var strToArr = str.split('');
 var copyArr = strToArr.slice();
 var palindrome = [];
@@ -53,16 +29,24 @@ function func(copyArr) {
                 palindrome.push(copyArr[i]);
                 j--;
                 i++;
-            } else {
+                if (i == j) {
+                    palindrome.push(copyArr[i]);
+                }
+            } else if (copyArr[i] != copyArr[j]) {
                 j--;
             }
         }
         i++;
     }
-    var copyPalindrome = palindrome.slice();
-    var reversedArr = copyPalindrome.reverse();
-    var twoArr = palindrome.concat(reversedArr);
-    return twoArr;
-
+    if (palindrome.length % 2 == 0) {
+        var copyPalindrome = palindrome.slice();
+        var reversedArr = copyPalindrome.reverse();
+        var twoArr = palindrome.concat(reversedArr);
+        return twoArr;
+    } else {
+        var copyPalindrome = palindrome.slice(1);
+        var twoArr = palindrome.concat(copyPalindrome);
+        return twoArr;
+    }
 }
 func(copyArr);
