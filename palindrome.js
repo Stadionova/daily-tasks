@@ -16,37 +16,33 @@
 // print(str(Solution().longestPalindrome(s)))
 // # racecar
 
-var str = "banana";
+var str = "mim";
 var strToArr = str.split('');
 var copyArr = strToArr.slice();
 var palindrome = [];
+var count = 0;
 
 function func(copyArr) {
-    for (var i = 0; i < copyArr.length;) {
+    for (var i = 0; i < copyArr.length - 1;) {
         var j = copyArr.length - 1;
-        for (; j > i;) {
+        for (; j > 0;) {
             if (copyArr[i] == copyArr[j]) {
                 palindrome.push(copyArr[i]);
+                palindrome.unshift(copyArr[j]);
                 j--;
                 i++;
-                if (i == j) {
-                    palindrome.push(copyArr[i]);
-                }
             } else if (copyArr[i] != copyArr[j]) {
+                count += 1;
                 j--;
             }
         }
         i++;
     }
-    if (palindrome.length % 2 == 0) {
-        var copyPalindrome = palindrome.slice();
-        var reversedArr = copyPalindrome.reverse();
-        var twoArr = palindrome.concat(reversedArr);
-        return twoArr;
+    if (count != 0) {
+        palindrome = palindrome.slice(palindrome.length / 2);
+        return palindrome;
     } else {
-        var copyPalindrome = palindrome.slice(1);
-        var twoArr = palindrome.concat(copyPalindrome);
-        return twoArr;
+        return copyArr;
     }
 }
 func(copyArr);
